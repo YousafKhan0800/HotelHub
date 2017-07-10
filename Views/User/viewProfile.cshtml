@@ -1,0 +1,126 @@
+﻿@model EADWebProj.Models.User
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Display - Blog</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- Free Website Template by www.tooplate.com -->
+    <link href="~/Content/tooplate_style.css" rel="stylesheet" type="text/css" />
+
+    <script language="javascript" type="text/javascript">
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+}
+    </script>
+
+</head>
+<body id="sub">
+
+    <div id="tooplate_wrapper_sub">
+        <div id="tooplate_header">
+            <div id="site_title"><h1><a href="/Home/index">User Profile</a></h1></div>
+            <div id="tooplate_menu">
+                <ul>
+                    <li><a href="/Home/index" class="current">Home</a></li>
+                    @{
+                        if (Session["uid"] != null)
+                        {
+                        
+                        <li><a href="/User/editProfile">Edit Profile</a></li>
+                        <li><a href="/User/logout">logout</a></li>
+                        }
+                        else
+                        {
+
+                        <li><a href="/User/signup">Sign Up</a></li>
+                        <li><a href="/User/usersignin">Sign In</a></li>
+                        }
+                   }
+                </ul>
+                <div id="search_box">
+                    <form action="/User/Blog" method="post">
+                        <input type="text" value="Search" name="city" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
+
+                        <input type="submit" name="Search" value="" id="searchbutton" title="Search" />
+                    </form>
+
+                </div>
+            </div> <!-- end of tooplate_menu -->
+        </div> <!-- end of header -->
+
+        <div id="tooplate_middle_sub">
+            <div id="mid_title">
+                Blog Posts
+            </div>
+            <p>Fusce condimentum odio id eros bibendum eget pharetra lectus bibendum. Nam commodo dignissim nulla, et tempor magna feugiat eu. In et diam quis enim vestibulum viverra. Etiam eu nunc eu nulla consequat adipiscing. </p>
+        </div> <!-- end of middle -->
+
+        <div id="tooplate_main">
+            <div class="post_box">
+                <h2>@Model.name</h2>
+                <div class="image_frame"><span></span><img src="~/Images/tooplate_image_08.jpg" alt="Image 08" /></div>
+                <h4>@Model.uid</h4>
+                <h4>@Model.phone</h4>
+                <p>Integer sit amet sapien mauris, ac porta enim. Morbi mollis odio at sem vulputate rutrum. Quisque vulputate rhoncus lorem eget vulputate. Vivamus porta facilisis tortor, a tristique massa sodales non. Nam adipiscing odio et ante semper elementum. Cras vitae aliquam leo. </p>
+
+                <div class="cleaner"></div>
+            </div>
+
+        </div> <!-- end of tooplate_main -->
+    </div> <!-- end of wrapper -->
+
+    <div id="tooplate_footer_wrapper">
+        <div id="tooplate_footer">
+
+            <div class="col_allw300">
+                <h4>Our Pages</h4>
+                <ul class="footer_list">
+                    <li><a href="/Home/index" class="current">Home</a></li>
+                    @{
+                    if (Session["uid"] != null)
+                    {
+                    
+                    <li><a href="/User/editProfile">Edit Profile</a></li>
+                     <li><a href="/User/logout">logout</a></li>
+                    }
+                    else
+                    {
+
+                    <li><a href="/User/signup">Sign Up</a></li>
+                    <li><a href="/User/usersignin">Sign In</a></li>
+                    }
+                    }
+                </ul>
+            </div>
+            <div class="col_allw300">
+                <h4>Our Partners</h4>
+                <ul class="footer_list">
+                    <li><a href="#">Learn HTML CSS</a></li>
+                    <li><a href="#">Web Design</a></li>
+                    <li><a href="#">Flash Gallery</a></li>
+                    <li><a href="#">Website Templates</a></li>
+                    <li><a href="#">Free Graphics</a></li>
+                </ul>
+            </div>
+            <div class="col_allw300 col_last">
+
+                <h4>About Us</h4>
+                Pellentesque sed urna nec arcu placerat elementum quis vel quam. Nam massa nibh, ultrices lobortis convallis et. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow"><strong>XHTML</strong></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow"><strong>CSS</strong></a>.
+                <div class="cleaner h10"></div>
+
+                Copyright © 2048 <a href="#">Company Name</a>
+
+            </div>
+
+            <div class="cleaner"></div>
+
+        </div> <!-- end of tooplate_footer -->
+        <div class="cleaner"></div>
+    </div>
+
+</body>
+</html>

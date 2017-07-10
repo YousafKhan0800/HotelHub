@@ -1,0 +1,68 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Home</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="~/Content/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="~/Content/assets/css/noscript.css" /></noscript>
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-diamond"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>Hotel Hub</h1>
+								<p>A plat form where a user can search for resturants in their city and get the relevant information
+                                and reserve the seats. Resturants and can also register, update and view their profiles. Admin can be added k
+                              only by an admin. Admin can also view and delete users and resturants as well. </p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li>
+                                    <form action="/Home/Index" method="post">
+                                        <input type="submit" value="User" /> 
+                                    </form>
+                                </li>
+								<li>
+                                    <form action="/Home/ResturantIndex" method="post">
+                                        <input type="submit" value="Resturant" />
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="/Home/AdminIndex" method="post">
+                                        <input type="submit" value="Admin" />
+                                    </form>
+                                </li>
+							</ul>
+						</nav>
+					</header>
+
+				
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; PUCIT, Lahore.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

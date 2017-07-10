@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/jquery.lightbox-0.5.css" />
+
+    <!-- Arquivos utilizados pelo jQuery lightBox plugin -->
+    <script type="text/javascript" src="scripts/jquery.lightbox-0.5.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/jquery.lightbox-0.5.css" media="screen" />
+    <!-- / fim dos arquivos utilizados pelo jQuery lightBox plugin -->
+    <!-- Ativando o jQuery lightBox plugin -->
+    
+
+    <script>
+
+    $(document).ready(function () {
+
+
+        $('#aid').focusout(
+            function () {
+                $('#result1').text("");
+                var userName = $('#aid').val();
+               // $('#result1').text("User already exists in database");
+                //alert('User Name ='+ userName);
+
+                $.getJSON("/Admin/CheckUserName?UserName=" + userName,function (data) {
+                    if (data) {
+                        $('#result1').text("User Name is available");
+                            
+                        }
+                        else {
+                        $('#result1').text("User already exists in database");
+
+                        }
+                    });
+
+            });
+
+    }
+    );//ready function
+    </script>
+</head>
+<body>
+    <label for="author">Login:</label>
+    <input type="text" id="aid" name="uid"  />
+    
+
+    <div id="result1"></div>
+    
+    <label for="subject">Password:</label>
+    <input type="password"  name="password" id="password" />
+    
+    <input type="submit" value="Send" id="submit" name="submit"  />
+    <input type="reset" value="Reset" id="reset" name="reset"  />
+</body>
+</html>

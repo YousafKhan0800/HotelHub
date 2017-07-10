@@ -1,0 +1,198 @@
+﻿@model EADWebProj.Models.resturant
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Display - Contact</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!-- Free Website Template by www.tooplate.com -->
+<link href="~/Content/tooplate_style.css" rel="stylesheet" type="text/css" />
+
+<script language="javascript" type="text/javascript">
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+}
+</script>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/jquery.lightbox-0.5.css" />    
+    
+<!-- Arquivos utilizados pelo jQuery lightBox plugin -->
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/jquery.lightbox-0.5.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/jquery.lightbox-0.5.css" media="screen" />
+<!-- / fim dos arquivos utilizados pelo jQuery lightBox plugin -->
+
+<!-- Ativando o jQuery lightBox plugin -->
+<script type="text/javascript">
+$(function() {
+    $('#map a').lightBox();
+});
+</script>
+
+</head>
+<body id="sub">
+
+<div id="tooplate_wrapper_sub">
+	<div id="tooplate_header">
+    	<div id="site_title"><h1><a href="/Home/index">Hotel Hub</a></h1></div>
+        <div id="tooplate_menu">
+            <ul>
+                <li><a href="/Home/index" class="current">Home</a></li>
+                <li><a href="/Resturant/about">About Us</a></li>
+
+                @{
+                    if (Session["rid"] != null)
+                    {
+
+                        <li><a href="/Resturant/gallery">Gallery</a></li>
+                        <li><a href="/Resturant/blog">View Profile</a></li>
+                        <li><a href="/Resturant/editProfile">Edit Profile</a></li>
+                        <li><a href="/Resturant/logout">logout</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="/Resturant/usersignin">Sign In</a></li>
+                        <li><a href="/Resturant/signup">Sign Up</a></li>
+                    }
+                }
+            </ul>    	
+            <div id="search_box">
+                <form action="/User/Blog" method="post">
+                    <input type="text" value="Search" name="city" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
+
+                    <input type="submit" name="Search" value="" id="searchbutton" title="Search" />
+                </form>
+            </div>
+        </div> <!-- end of tooplate_menu -->
+    </div> <!-- end of header -->
+    
+    <div id="tooplate_middle_sub">
+        <div id="mid_title">
+            Contact Information	
+        </div>
+        <p>Praesent et turpis non purus ornare vestibulum. Duis in nunc neque. Phasellus pharetra sem in risus molestie fringilla. Maecenas nec nibh ante, sed dignissim felis. Pellentesque scelerisque ipsum ut sem elementum et tristique mi imperdiet. </p>
+	</div> <!-- end of middle -->
+    
+     <div id="tooplate_main">
+        <div class="col_w450 float_l">
+            <div id="contact_form">
+        
+                <h2>Sign Up Information</h2>
+                
+               <!-- <form method="post" name="contact" action="#">-->
+                @using (Html.BeginForm())
+                {
+                    <label for="author">Login Id:</label>                   
+                    @Html.TextBoxFor(model => model.rid)
+                    <div class="cleaner h10"></div>
+                    <label for="author">Password:</label>
+                    @Html.TextBoxFor(model => model.password)
+                    <div class="cleaner h10"></div>
+                    <label for="author">Name:</label>
+                    @Html.TextBoxFor(model => model.name)
+                    <div class="cleaner h10"></div>
+                    <label for="author">City:</label>
+                    @Html.TextBoxFor(model => model.city)
+                    <div class="cleaner h10"></div>
+
+
+                    <label for="author">Address:</label>
+                    @Html.TextBoxFor(model => model.address)
+                    <div class="cleaner h10"></div>
+
+                    <label for="author">Customer Capacity:</label>
+                    @Html.TextBoxFor(model => model.capacity)
+                    <div class="cleaner h10"></div>
+                    <label for="author">Phone:</label>
+                    @Html.TextBoxFor(model => model.phone)
+                    <div class="cleaner h10"></div>
+                    <input type="submit" value="Send" id="submit" name="submit" class="submit_btn float_l" />
+                    <input type="reset" value="Reset" id="reset" name="reset" class="submit_btn float_r" />
+
+
+                }
+                  <!--   <label for="author">Login Id:</label> <input type="text" id="author" name="uid" class="required input_field" />
+                    <div class="cleaner h10"></div>
+
+						<label for="author">Name:</label> <input type="text" id="author" name="author" class="required input_field" />
+						<div class="cleaner h10"></div>
+													
+						<label for="email">Email:</label> <input type="text" class="validate-email required input_field" name="email" id="email" />
+						<div class="cleaner h10"></div>
+											
+						<label for="subject">Subject:</label> <input type="text" class="validate-subject required input_field" name="subject" id="subject"/>				               
+						<div class="cleaner h10"></div>
+							
+						<label for="text">Message:</label> <textarea id="text" name="text" rows="0" cols="0" class="required"></textarea>
+						<div class="cleaner h10"></div>				
+												
+						<input type="submit" value="Send" id="submit" name="submit" class="submit_btn float_l" />
+						<input type="reset" value="Reset" id="reset" name="reset" class="submit_btn float_r" />
+						
+				</form> -->
+            </div> 
+        </div>
+            
+        <div class="col_w450 float_r">
+            <h4>Our Location</h4>
+            <div id="map"><a href="~/Images/map_big.jpg" title="Our Location"><img width="300" height="200" src="~/Images/map_thumb.jpg" alt="Our Location" class="image_wrapper" /></a></div>                
+            <div class="cleaner h30"></div>
+            
+            <h4>Mailing Address</h4>
+            <h6><strong>Our Company</strong></h6>
+            124-860 Cras vitae aliquam leo, <br />
+            Vestibulum non nunc quis, 15220<br />
+            Class aptent taciti sociosqu ad<br/><br/>
+            
+            <strong>Phone:</strong> 010-040-1520<br/>
+            <strong>Email:</strong> <a href="mailto:info@company.com">info@company.com</a>
+        </div>    	
+    	
+    	<div class="cleaner"></div>
+    </div> <!-- end of tooplate_main -->
+</div> <!-- end of wrapper -->
+
+<div id="tooplate_footer_wrapper">
+    <div id="tooplate_footer">
+    
+    	<div class="col_allw300">
+        	<h4>Our Pages</h4>
+            <ul class="footer_list">
+            	<li><a href="/Home/index">Home</a></li>
+                <li><a href="/Home/about.cshtml">About Us</a></li>
+                <li><a href="/Home/blog">Blog</a></li>
+                <li><a href="/Home/gallery">Gallery</a></li>
+                <li><a href="/Home/signup">Sign Up</a></li>
+            </ul>
+        </div>
+    	<div class="col_allw300">
+        	<h4>Our Partners</h4>
+            <ul class="footer_list">
+            	<li><a href="#">Learn HTML CSS</a></li>
+                <li><a href="#">Web Design</a></li>
+            	<li><a href="#">Flash Gallery</a></li>
+                <li><a href="#">Website Templates</a></li>
+                <li><a href="#">Free Graphics</a></li>
+            </ul>
+        </div>
+    	<div class="col_allw300 col_last">
+        
+        	<h4>About Us</h4>
+            Pellentesque sed urna nec arcu placerat elementum quis vel quam. Nam massa nibh, ultrices lobortis convallis et. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow"><strong>XHTML</strong></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow"><strong>CSS</strong></a>.
+            <div class="cleaner h10"></div>
+            
+            Copyright © 2048 <a href="#">Company Name</a>
+            
+        </div>                  
+    
+        <div class="cleaner"></div>
+    
+    </div> <!-- end of tooplate_footer -->
+     <div class="cleaner"></div>
+</div>
+
+</body>
+</html>

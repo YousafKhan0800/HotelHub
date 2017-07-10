@@ -1,0 +1,123 @@
+﻿@model List<EADWebProj.Models.resturant>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Display - Blog</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!-- Free Website Template by www.tooplate.com -->
+    <link href="~/Content/tooplate_style.css" rel="stylesheet" type="text/css" />
+
+<script language="javascript" type="text/javascript">
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+}
+</script>
+
+</head>
+<body id="sub">
+
+<div id="tooplate_wrapper_sub">
+	<div id="tooplate_header">
+    	<div id="site_title"><h1><a href="/Home/index">Searched Resturants</a></h1></div>
+        <div id="tooplate_menu">
+            <ul>
+                <li><a href="/Home/index" class="current">Home</a></li>
+                <li><a href="/User/signup" class="current">Sign Up</a></li>
+                <li><a href="/User/usersignin" class="current">Sign In</a></li>
+            </ul>    	
+            <div id="search_box">
+                <form action="/User/Blog" method="post">
+                    <input type="text" value="Search" name="city" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
+
+                    <input type="submit" name="Search" value="" id="searchbutton" title="Search" />
+                </form>
+            </div>
+        </div> <!-- end of tooplate_menu -->
+    </div> <!-- end of header -->
+    
+    <div id="tooplate_middle_sub">
+        <div id="mid_title">
+            <p>Resturants in your Desired City</p>
+        </div>
+        </div> <!-- end of middle -->
+    
+     <div id="tooplate_main">
+         
+    @{
+        int i = 9;
+        if(Model!=null)
+        { 
+            foreach (EADWebProj.Models.resturant v in Model)
+            {                   
+                i++;            
+                if(v!=null)
+                { 
+                    <div class="post_box">
+                        <h2>@v.name</h2>
+                        <div class="image_frame"><span></span><img src="~/Images/tooplate_image_0@(i).jpg" alt="~/Images/tooplate_image_0@(i).jpg" /></div>
+                        <h4>Phone: @v.phone</h4>
+                        <h4>Address: @v.address</h4>
+                        <h4>Capacity: @v.capacity</h4>
+                        @Html.ActionLink("more", "abcout", new { rid = @v.rid, pic=i }, new { @class = "more float_r" })
+                
+                        <div class="cleaner"></div>
+                    </div>
+                }
+            }
+        }
+    }
+
+        <!--<div class="post_box">
+            <h2>Creating 3D Animations</h2>
+            <div class="image_frame"><span></span><img src="~/Images/tooplate_image_06.jpg" alt="Image 06" /></div>
+            <p><span class="cat">Posted in <a href="#">Animations</a>, <a href="#">3D Graphics</a></span> | Date: June 19, 2048</p>
+            <p>Vestibulum adipiscing tempus elit eu condimentum. Fusce at mi felis. Etiam sed velit nibh. Nunc bibendum justo nec eros elementum auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi sollicitudin ultrices urna, at placerat urna pharetra dictum. </p>
+            <a class="more float_r" href="#">More</a>
+            <a href="#">168 comments</a>
+            <div class="cleaner"></div>
+        </div>
+        <div class="post_box">
+            <h2>Free HTML CSS Templates</h2>
+            <div class="image_frame"><span></span><img src="~/Images/tooplate_image_07.jpg" alt="Image 07" /></div>
+            <p><span class="cat">Posted in <a href="#">Templates</a>, <a href="#">HTML CSS</a></span> | Date: June 16, 2048</p>
+            <p>Donec dictum feugiat eros et sagittis. Sed laoreet, eros eget convallis elementum, est mi accumsan justo, sed accumsan magna ligula sit amet ligula. Aliquam posuere metus id risus cursus accumsan. Vivamus cursus nisl at ipsum elementum id hendrerit eros volutpat.</p>
+            <a class="more float_r" href="#">More</a>
+            <a href="#">180 comments</a>
+            <div class="cleaner"></div>
+        </div>
+            -->
+    </div> <!-- end of tooplate_main -->
+</div> <!-- end of wrapper -->
+
+<div id="tooplate_footer_wrapper">
+    <div id="tooplate_footer">
+    
+    	<div class="col_allw300">
+        	<h4>Our Pages</h4>
+            <ul class="footer_list">
+                <li><a href="/Home/index" class="current">Home</a></li>
+                
+            </ul>
+        </div>
+    	
+    	<div class="col_allw300 col_last">
+        
+        	<h4>About Us</h4>
+            Pellentesque sed urna nec arcu placerat elementum quis vel quam. Nam massa nibh, ultrices lobortis convallis et. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow"><strong>XHTML</strong></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow"><strong>CSS</strong></a>.
+            <div class="cleaner h10"></div>
+            
+            Copyright © 2048
+        </div>                 
+    
+        <div class="cleaner"></div>
+    
+    </div> <!-- end of tooplate_footer -->
+     <div class="cleaner"></div>
+</div>
+
+</body>
+</html>
